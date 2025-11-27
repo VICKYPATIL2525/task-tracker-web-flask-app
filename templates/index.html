@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>📋 Aurgency todo list - Task Manager</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="header-bg"></div>
+    <div class="container">
+      <header class="app-header">
+        <div class="header-content">
+          <div>
+            <h1>📋 Aurgency todo list</h1>
+            <p class="subtitle">Organize tasks by importance and urgency</p>
+          </div>
+          <div class="user-section">
+            <span class="username-display">👤 {{ username }}</span>
+            <a href="/logout" class="logout-btn">Logout</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="input-section">
+        <div class="input-wrapper">
+          <input id="taskInput" type="text" placeholder="What needs to be done?" />
+        </div>
+        <div class="input-wrapper">
+          <label for="deadlineInput" class="input-label">Task Deadline:</label>
+          <input id="deadlineInput" type="date" placeholder="Select deadline date" />
+        </div>
+        <div class="priority-buttons">
+          <button class="priority-btn critical" data-important="true" data-urgent="true">
+            <span class="btn-icon">🔥</span>
+            <span class="btn-label">Critical</span>
+            <span class="btn-desc">Important & Urgent</span>
+          </button>
+          <button class="priority-btn urgent" data-important="false" data-urgent="true">
+            <span class="btn-icon">⚡</span>
+            <span class="btn-label">Urgent</span>
+            <span class="btn-desc">Not Important & Urgent</span>
+          </button>
+          <button class="priority-btn important" data-important="true" data-urgent="false">
+            <span class="btn-icon">⭐</span>
+            <span class="btn-label">Important</span>
+            <span class="btn-desc">Important & Not Urgent</span>
+          </button>
+          <button class="priority-btn normal" data-important="false" data-urgent="false">
+            <span class="btn-icon">📝</span>
+            <span class="btn-label">Normal</span>
+            <span class="btn-desc">Not Important & Not Urgent</span>
+          </button>
+        </div>
+      </div>
+
+      <section class="tasks-section">
+        <div class="section-header">
+          <h2>⏳ Pending Tasks</h2>
+          <div class="filter-wrapper">
+            <label for="pendingFilter">Filter:</label>
+            <select id="pendingFilter">
+              <option value="all">All Priorities</option>
+              <option value="imp_urg">🔥 Critical</option>
+              <option value="notimp_urg">⚡ Urgent</option>
+              <option value="imp_noturg">⭐ Important</option>
+              <option value="notimp_noturg">📝 Normal</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table id="tasksTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Task</th>
+                <th>Priority</th>
+                <th>Deadline</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="export-action">
+          <button id="exportPending" class="action-btn export">📊 Export to Excel</button>
+        </div>
+      </section>
+
+      <section class="tasks-section">
+        <div class="section-header">
+          <h2>✅ Completed Tasks</h2>
+          <div class="filter-wrapper">
+            <label for="doneFilter">Filter:</label>
+            <select id="doneFilter">
+              <option value="all">All Priorities</option>
+              <option value="imp_urg">🔥 Critical</option>
+              <option value="notimp_urg">⚡ Urgent</option>
+              <option value="imp_noturg">⭐ Important</option>
+              <option value="notimp_noturg">📝 Normal</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table id="doneTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Task</th>
+                <th>Priority</th>
+                <th>Created At</th>
+                <th>Deadline</th>
+                <th>Completed At</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="export-action">
+          <button id="exportDone" class="action-btn export">📊 Export to Excel</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
