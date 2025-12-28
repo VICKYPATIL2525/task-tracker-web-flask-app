@@ -1,6 +1,6 @@
 # College Todo App
 
-A simple and intuitive web-based todo application built with Flask. Organize your tasks using the Eisenhower Matrix (Important/Urgent prioritization) with user authentication and Excel export capabilities.
+A simple and intuitive task organizer using Eisenhower Matrix, web-based application built with Flask.  (Important/Urgent prioritization) with user authentication and Excel export capabilities.
 
 ## Features
 
@@ -212,3 +212,4 @@ If you encounter any issues or have questions, please open an issue on GitHub.
 ---
 
 Made with Flask and Python
+
